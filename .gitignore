@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+scheduler.env
+
+backups/
+reports/*.log
+reports/run_report_*.txt
+
+# Local secrets / credentials
+config.local.yaml
+*.secret
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

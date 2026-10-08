@@ -1,0 +1,40 @@
+# Main application configuration.
+# Secrets should normally be supplied through environment variables.
+
+mysql:
+  host: localhost
+  port: 3306
+  database: backup_restore_demo
+  user: root
+  password: "${MYSQL_PASSWORD}"
+  mysqldump_path: "C:/Program Files/MySQL/MySQL Server 8.0/bin/mysqldump.exe"
+
+backup:
+  directory: backups
+  retention_days: 7
+  timeout_seconds: 300
+
+health:
+  thresholds:
+    max_threads_connected: 50
+    max_threads_running: 20
+    max_slow_queries: 10
+    max_queries_per_second: 100
+
+email:
+  enabled: true
+  smtp_host: localhost
+  smtp_port: 1025
+  use_tls: false
+  username: ""
+  password: ""
+  from: mysql-monitor@example.com
+  to:
+    - test@example.com
+
+schedule:
+  daily_time: "02:00"
+
+logging:
+  log_file: reports/application.log
+  report_dir: reports
